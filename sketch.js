@@ -2,6 +2,9 @@
 
 
 
+
+
+
 var player
 var playerTwo
 var Wall1
@@ -19,8 +22,8 @@ var resetFallingBlocks
 var showInstructions = true;  //will display how the game is played, and will dissapper when the space bar is pressed//
 var level = 1
 var time
-var blocksDodged = 0
-var mostBlocksDodged = 0
+/*var blocksDodged = 0
+var mostBlocksDodged = 0*/
 
 function setup() {
 
@@ -90,10 +93,10 @@ for (var i = 0; i < fallingBlocks.length ; i++){
    fallingBlocks.get(i).addSpeed(Freeze*0.2*level, Freeze*90+random(22*Freeze)); //Sets the velocity of the falling blocks to 0.2, sets the angle at which they fall to 90 degrees (straight down), and the (22)random means they will fall randomly within 22 degrees of straight down//
  }
 
-textSize(15)
+/*textSize(15)
 text("Blocks Dodged: "+blocksDodged,100,100)
 textSize(15)
-text("Most Blocks Dodged: "+mostBlocksDodged,100,150)
+text("Most Blocks Dodged: "+mostBlocksDodged,100,150)*/
 
 textSize(15) //Increaces the text size of the message below//
 text("Number of Player One Lives: \n     "+PlayerOneLives,100,400); //Shows the number of lives player one has left//
@@ -106,13 +109,13 @@ level = level+0.001
 
 }
 
-
+/*
 if (blocksDodged > mostBlocksDodged && GameOver == true) {
 
 mostBlocksDodged = blocksDodged
 blocksDodged = 0
 
-}
+}*/
 
 
 
@@ -128,7 +131,7 @@ Freeze = 0 //If showInstructions = true, then freeze = 0, stopping all movement/
 if(showInstructions == true && keyDown(32)){ //If show instructions is on, and the spacebar is pressed, then show instructions will become false and the game will unfreeze//
   Freeze = 1
   showInstructions = false
-blocksDodged = 0
+/*blocksDodged = 0*/
 level = 1
 }
 
@@ -154,7 +157,7 @@ playerTwo.addSpeed(Freeze*0.2, 360)
 
  if(keyDown(32) && GameOver == true) { //this is where the game resets itself//
 
-blocksDodged = 0
+/*blocksDodged = 0*/
    for (var i = 0; i < fallingBlocks.length ; i++){
      resetPlayer(player,fallingBlocks.get(i)); }  //not sure what this does but I think its importnat//
 
@@ -174,6 +177,8 @@ resetPlayerTwo(playerTwo, fallingOne )
 textSize(30)
 text(Winner + " wins! Press Spacebar to reset.", 100, 300)
 Freeze = 0;
+
+level = 1
 
 for (var i = 0; i < fallingBlocks.length ; i++){
     fallingBlocks.get(i).setVelocity(Freeze*0.2*level, Freeze*90+random(22*Freeze)); }
@@ -228,6 +233,6 @@ for (var i = 0; i < fallingBlocks.length ; i++){
       spriteA.velocity.y=0;
       spriteA.position.x=random(800)
 
-      blocksDodged = blocksDodged + 1
+      /*blocksDodged = blocksDodged + 1*/
 
   }
